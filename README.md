@@ -1,7 +1,7 @@
 # Api-Creation
 
 <p align="center">
- <img src="images/api.png"/>
+ <img src="./images/api.png"/>
 </p>
 
 ## Scope:
@@ -21,6 +21,6 @@ The aim of this project is to create an api of chat messages, to later analyze t
 ## Database Schema Implemented:
 
 <p align="center">
- <img src="images/db.png"/>
+ <img src="./images/db.png"/>
 </p>
 
