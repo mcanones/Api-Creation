@@ -21,13 +21,13 @@ Basic path: `https://miriapi.herokuapp.com/` (You should add some of the followi
 
 **SCHEMA**: `PATH` + `TERMINATIONS` 
 
-1) (GET) Introduce users in the database: **/user/create/{name}**
-2) (GET) Create a chat with users: **/chat/create** // params=[<user_id>, <user_id>, <user_id>,...]
-3) (GET) Add user in a pre-existing chat: **/chat/{chat_id}/adduser** // params={"user_id":<user_id>}
-4) (POST) Add a message: **/chat/{chat_id}/addmessage** // data={{"user_id":<user_id>, "chat_id":<chat_id>}
-5) (GET) Obtain all the messages in a chat: **/chat/{chat_id}/list**
-6) (GET) Get the sentimes score of a specific chat: **/chat/{chat_id}/sentiment**
-7) (GET) Recommend 3 friends to a user depending on chat contents: **/user/{user_id}/recommend**
+1) (GET) Introduce users in the database: **/user/create/<name>**
+2) (GET) Create a chat with users: **/chat/create** -> params=[<user_id>, <user_id>, <user_id>,...]
+3) (GET) Add user in a pre-existing chat: **/chat/<chat_id>/adduser** -> params={"user_id":<user_id>}
+4) (POST) Add a message: **/chat/<chat_id>/addmessage** -> data={{"user_id":<user_id>, "chat_id":<chat_id>}
+5) (GET) Obtain all the messages in a chat: **/chat/<chat_id>/list**
+6) (GET) Get the sentimes score of a specific chat: **/chat/<chat_id>/sentiment**
+7) (GET) Recommend 3 friends to a user depending on chat contents: **/user/<user_id>/recommend**
 
 Examples of use:
 
