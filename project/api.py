@@ -57,14 +57,14 @@ def listMessagesChat(chat_id):
 @app.route("/chat/<chat_id>/sentiment")
 @errorHandler
 def chatSentiments(chat_id):
-    msgs = chatSentimentsMongo(chat_id)
-    return dumps({'result': msgs})
+    msgs, avg_scores = chatSentimentsMongo(chat_id)
+    return dumps({'Average Score Chat': {'Negative':avg_scores[0], 'Neutral':avg_scores[1], 'Positive':avg_scores[2] }, 'Messages': msgs})
 
 @app.route("/user/<user_id>/recommend")
 @errorHandler
 def recommendUsers(user_id):
     recommendations = recommendUsersMongo(user_id)
-    return dumps({'result': recommendations})
+    return dumps({'Result': recommendations})
 
 app.run("0.0.0.0", PORT, debug=True)
 
