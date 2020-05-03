@@ -49,7 +49,6 @@ def insertMessageInChat(chat_id):
     return dumps({"Result":"The user_id is not in the chat"})
 
 @app.route("/chat/<chat_id>/list")
-@errorHandler
 def listMessagesChat(chat_id):
     msgs_array = listMessagesChatMongo(chat_id)
     return dumps(msgs_array) 

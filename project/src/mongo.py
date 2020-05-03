@@ -81,20 +81,17 @@ def insertMessageInChatMongo(chat_id, user_id, text):
 
 def listMessagesChatMongo(chat_id):
     msgs_array = messages.find({'chat_id': chat_id},{'_id':0, 'name':1, 'message':1})
-    if len(list(msgs_array))==0:
-        print("ERROR")
-        raise Error404("chat_id not found")
     return msgs_array
 
 def chatSentimentsMongo(chat_id):
     msgs= list(messages.find({'chat_id': chat_id},{'_id':0, 'name':1,  'message':1, 'negative_score':1, 'neutral_score':1,'positive_score':1 }))
+    if not msgs:
+        print("ERROR")
+        raise Error404("chat_id not found")
     scores_cat=['negative_score', 'neutral_score', 'positive_score']
     avg_scores=[]
     for e in scores_cat:
         avg_scores.append(sum([m[e] for m in msgs])/len(msgs))
-    if not msgs:
-        print("ERROR")
-        raise Error404("chat_id not found")
     return  msgs, avg_scores
 
 def recommendUsersMongo(user_id):
