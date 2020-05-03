@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from settings.settings import PORT
 from src.mongo import *
 from errors.handlers import *
@@ -10,7 +10,7 @@ app = Flask(__name__)
 @app.route("/user/create/<username>")
 def insertUser(username):
     id_str = insertUserMongo(username)
-    return dumps({"Result": f"Inserted {username} - ID: {id_str}"})
+    return jsonify({"Result": f"Inserted {username} - ID: {id_str}"})
 
 @app.route("/chat/create")
 @errorHandler
@@ -18,17 +18,17 @@ def insertChat():
     users_ids = request.args.get("users_ids").split(',')
     chat_id = insertChatMongo(users_ids)
     if chat_id != None:
-        return dumps({"result":"You have created a chat", 
+        return jsonify({"result":"You have created a chat", 
         'Chat ID':chat_id,
         'Members':len(users_ids)})
-    return dumps({"Result":"You are trying to create a chat with users that are not in de DB"})
+    return jsonify({"Result":"You are trying to create a chat with users that are not in de DB"})
 
 @app.route("/chat/<chat_id>/adduser")
 @errorHandler
 def insertMemberInChat(chat_id):
     user_id = request.args.get("user_id")
     members = insertMemberInChatMongo(chat_id, user_id)
-    return dumps({"Result":"You have introduced a user", 
+    return jsonify({"Result":"You have introduced a user", 
         'In Chat': chat_id,
         'User ID': user_id})
 
@@ -39,31 +39,31 @@ def insertMessageInChat(chat_id):
     text = request.form.get('text')
     inserted, msg_str, name = insertMessageInChatMongo(chat_id, user_id, text)
     if inserted:
-        return dumps({"Result": "You have inserted a message",
+        return jsonify({"Result": "You have inserted a message",
             "With ID": msg_str,
             "In Chat":chat_id,
             "From User": user_id,
             "Name User": name,
             "Content": text,
             "Date": str(datetime.datetime.now())})
-    return dumps({"Result":"The user_id is not in the chat"})
+    return jsonify({"Result":"The user_id is not in the chat"})
 
 @app.route("/chat/<chat_id>/list")
 def listMessagesChat(chat_id):
     msgs_array = listMessagesChatMongo(chat_id)
-    return dumps(msgs_array) 
+    return jsonify({"Result": list(msgs_array)}) 
 
 @app.route("/chat/<chat_id>/sentiment")
 @errorHandler
 def chatSentiments(chat_id):
     msgs, avg_scores = chatSentimentsMongo(chat_id)
-    return dumps({'Average Score Chat': {'Negative':avg_scores[0], 'Neutral':avg_scores[1], 'Positive':avg_scores[2] }, 'Messages': msgs})
+    return jsonify({'Average Score Chat': {'Negative':avg_scores[0], 'Neutral':avg_scores[1], 'Positive':avg_scores[2] }, 'Messages': msgs})
 
 @app.route("/user/<user_id>/recommend")
 @errorHandler
 def recommendUsers(user_id):
     recommendations = recommendUsersMongo(user_id)
-    return dumps({'Result': recommendations})
+    return jsonify({'Result': recommendations})
 
 app.run("0.0.0.0", PORT, debug=True)
 
