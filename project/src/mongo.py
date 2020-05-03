@@ -1,7 +1,7 @@
 import sys
 sys.path.append("..") 
 from pymongo import MongoClient
-from project.settings import DBURL
+from settings.settings import DBURL
 from pymongo import ReturnDocument
 from bson import ObjectId
 from src.getRecommendations import getRecommendations

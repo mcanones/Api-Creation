@@ -1,5 +1,5 @@
 from flask import Flask, request
-from settings import PORT
+from settings.settings import PORT
 from src.mongo import *
 from errors.handlers import *
 from bson.json_util import dumps

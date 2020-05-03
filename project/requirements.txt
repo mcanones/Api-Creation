@@ -1,0 +1,10 @@
+flask
+pymongo
+python-dotenv
+
+datetime
+regex
+nltk
+pandas
+sklearn
+dnspython
