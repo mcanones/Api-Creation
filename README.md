@@ -15,14 +15,14 @@ The aim of this project is to create an api of chat messages, to later analyze t
 
 ## Do you want to try the API? 
 
-🔥`MIRIAPI`🔥 is the web application used to launch the API. You can interact with it in the following way:
+🔥`MIRIAPI`🔥 is the web application used to launch the API 🚀. You can interact with it in the following way:
 
 Basic path: `https://miriapi.herokuapp.com` (You should add some of the following terminations)
 
 **SCHEMA**: `PATH` + `TERMINATIONS` 
 
 1) (GET) Welcome message: **/**
-2) (GET) Introduce users in the database: **/user/create/**<name>
+2) (GET) Introduce users in the database: **/chat/create/<name>** 
 3) (GET) Create a chat with users: **/chat/create** -> params=[<user_id>, <user_id>, <user_id>,...]
 4) (GET) Add user in a pre-existing chat: **/chat/<chat_id>/adduser** -> params={"user_id":<user_id>}
 5) (POST) Add a message: **/chat/<chat_id>/addmessage** -> data={"user_id":<user_id>, "chat_id":<chat_id>}
@@ -51,6 +51,6 @@ Examples of use:
 ## Database Schema Implemented:
 
 <p align="center">
- <img src="./images/db.png"/>
+ <img src="./images/db.png" width="400" height="790"/>
 </p>
 
