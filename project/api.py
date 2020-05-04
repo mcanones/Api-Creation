@@ -7,6 +7,10 @@ from errors.handlers import *
 
 app = Flask(__name__)
 
+@app.route("/")
+def welcomeMsg( ):
+    return jsonify({"Result": f"Hello! Welcome to MIRIAPI"})
+
 @app.route("/user/create/<username>")
 def insertUser(username):
     id_str = insertUserMongo(username)
