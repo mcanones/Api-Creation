@@ -22,7 +22,7 @@ Basic path: `https://miriapi.herokuapp.com` (You should add some of the followin
 **SCHEMA**: `PATH` + `TERMINATIONS` 
 
 1) (GET) Welcome message: **/**
-2) (GET) Introduce users in the database: **/chat/create/<name>** 
+2) (GET) Introduce users in the database: **/chat/create/`<name>`**
 3) (GET) Create a chat with users: **/chat/create** -> params=[<user_id>, <user_id>, <user_id>,...]
 4) (GET) Add user in a pre-existing chat: **/chat/<chat_id>/adduser** -> params={"user_id":<user_id>}
 5) (POST) Add a message: **/chat/<chat_id>/addmessage** -> data={"user_id":<user_id>, "chat_id":<chat_id>}
@@ -51,6 +51,6 @@ Examples of use:
 ## Database Schema Implemented:
 
 <p align="center">
- <img src="./images/db.png" width="400" height="790"/>
+ <img src="./images/db.png" width="1000" height="400"/>
 </p>
 
