@@ -32,6 +32,8 @@ Basic path: `https://miriapi.herokuapp.com` (You should add some of the followin
 
 Examples of use:
 
+- https://miriapi.herokuapp.com/
+
 - https://miriapi.herokuapp.com/user/create/miriam 
 
 - https://miriapi.herokuapp.com/chat/5eadb94fbbbaa3faa1599730/list 
