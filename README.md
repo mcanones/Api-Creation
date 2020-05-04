@@ -8,10 +8,14 @@
 
 The aim of this project is to create an api of chat messages, to later analyze the conversations. Functionalities:
 
-- ✅ It stores chat messages in a cloud database 
-- ✅ It extracts sentiments from chat messages 
-- ✅ It recommends friends to a user based on the contents from chat messages using a recommender system with `NLP` analysis 
+- ✅ Store chat messages in a cloud database 
+- ✅ Extract sentiments from chat messages 
+- ✅ Recommend friends to a user based on chat contents using a recommender system with `NLP` analysis 
 - ✅ The service is deployed with Docker to Heroku 
+
+**Docker** is a tool designed to make it easier to create, deploy, and run applications by using containers. A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. 
+
+**Heroku** is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
 
 ## Do you want to try the API? 
 
@@ -49,6 +53,12 @@ Examples of use:
 ## Design of the API
 
 - **Flask** 
+
+## Links:
+
+The comments in the database are extracted from **The Witcher** Netflix Serie.
+
+- URL: https://transcripts.fandom.com/wiki/Four_Marks
 
 ## Database Schema Implemented:
 
