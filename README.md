@@ -23,9 +23,9 @@ Basic path: `https://miriapi.herokuapp.com` (You should add some of the followin
 
 1) (GET) Welcome message: **/**
 2) (GET) Introduce users in the database: **/chat/create/`<name>`**
-3) (GET) Create a chat with users: **/chat/create** -> params=[<user_id>, <user_id>, <user_id>,...]
-4) (GET) Add user in a pre-existing chat: **/chat/`<chat_id>`/adduser** -> params={"user_id"`<user_id>`}
-5) (POST) Add a message: **/chat/`<chat_id>`/addmessage** -> data={"user_id":`<user_id>`, "chat_id":`<chat_id>`}
+3) (GET) Create a chat with users: **/chat/create** -> **params**=[<user_id>, <user_id>, <user_id>,...]
+4) (GET) Add user in a pre-existing chat: **/chat/`<chat_id>`/adduser** -> **params**={"user_id":`<user_id>`}
+5) (POST) Add a message: **/chat/`<chat_id>`/addmessage** -> **data**={"user_id":`<user_id>`, "chat_id":`<chat_id>`}
 6) (GET) Obtain all the messages in a chat: **/chat`<chat_id>`/list**
 7) (GET) Get the sentimes score of a specific chat: **/chat`<chat_id>`/sentiment**
 8) (GET) Recommend 3 friends to a user depending on chat contents: **/user`<user_id>`/recommend**
@@ -46,11 +46,11 @@ Examples of use:
 
 ## Design of the API
 
-- Flask 
+- **Flask** 
 
 ## Database Schema Implemented:
 
 <p align="center">
- <img src="./images/db.png" width="1000" height="600"/>
+ <img src="./images/db.png" width="950" height="550"/>
 </p>
 
